@@ -1,0 +1,2 @@
+Se modifico el personas.component.html y ts
+

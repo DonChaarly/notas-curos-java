@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios en HTML</title>
+</head>
+<body>
+    <h1>Formularios en HTML</h1>
+    <!--para agregar un formulario se utiliza la etiqueta de form en donde estaran los elementos de formulario-->
+    <!--Para hacer que el formulario no se tenga que validar, osea que no se requiera llenar para enviar, se puede colocar el atributo de novalidate en la etiqueta de form-->
+    <!--Metodo GET- este metodo se utiliza por defecto en la etiqueta form de nuestro formulario e indica la informacion en el URL del formulario
+        El metodo POST se puede indicar colocando method="POST" y este envia la informacion como parte del cuerpo de la pagina, ya no por medio del URL-->
+    <!--El atributo de traget="_blank" cargara la respuesta en una pagina nueva, se tiene por default _self-->
+    <!--Si no se quiere que el navegador autocomplete el formulario se puede indicar el atributo de autocomplite="off"-->
+    <!--Para indicar cual es la URL que procesara el formulario se coloca el atributo de action=""-->
+    <form action="mi_servidor" method="GET" target="_self" autocomplete="off" >
+        <!--Con fieldset se puede agregar un marco al formulario, la etiqueta cierra hasta el final del formulario-->
+        <fieldset>
+            <!--Se puede agregar un titulo al formulario con la etiqueta de legend-->
+            <legend>Datos Persona:</legend>
+
+            <label for="idPersona">idPersona</label>
+            <br/>
+            <!--Para colocar un parametro que sea solamente de lectura, osea que no se pueda modificar, se coloca el atributo de readonly-->
+            <!--Si no se quiere mandar al servidor este parametro se coloca el atributo de disable-->
+            <input type="text" id="idPersona" name="idPersona" readonly value="100"/>
+            <br/>
+
+            <!--Para colocar un parametro oculto, se coloca hidden en el tipo de entrada-->
+            <input type="hidden" name="sistema" id="sistema" value="SAP">
+
+            <!--Se recomienda agregar un label(etiqueta) para indicar al usuario que debe proporcionar en la casilla
+                Tambien se incluye el atributo de for para relacionar la etiqueta con la casilla(input)-->
+            <label for="nombre">Nombre</label>
+            <br/>
+            <!--se coloca una etiqueta input para que el usuario proporcione informacion y se indica el type(tipo) de la entrada del formulario-->
+            <!--con name indicamos en el navegador el nombre del atributo que se envio, con placeholder se coloca una instruccion en el cuadro y con required, se especifica si es requerido llenar el cuadro o no-->
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required="true"/>
+            <br/>
+
+            <label for="apellido">Apellido</label>
+            <br/>
+            <!--Se puede agregar un valor por defecto en el cuadro colocando value=""-->
+            <input type="text" id="apellido" name="apellido" placeholder="Escribe tu apellido" required="true"/>
+            <br/>
+
+            <label for="email">Email</label>
+            <br/>
+            <!--Para agregar una casilla que contenga un email se coloca en type="email"-->
+            <input type="email" placeholder="Escribe tu email" name="email" required id="email">
+            <br>
+
+            <label for="edad">Edad</label>
+            <br/>
+            <!--Para agregar un campo que soporte solamente numeros, y para que pued soportar numeros decimales se agrega el atrivuto de step="any"-->
+            <input type="number" name="edad" id="edad" required step="any"/>
+            <br/>
+            
+            <label for="password">Pasword</label>
+            <br/>
+            <!--Para hacer que el contenido de la casilla no se muestre, en el tipo de la entrada se marca como password-->
+            <input type="password" id="pasword" name="password" required/>
+            <br/>
+
+            <label>Genero</label>
+            <br/>
+            <!--Los radio buttons se ocupan generalmente para marcar solamente una opcion de las presentadas-->
+            <input type="radio" id="masculino" name="genero" value="masculino" />
+            <label for="masculino">Masculino</label>
+            <br/>
+            <!--El name de las opciones tiene que ser el mismo para que se seleccione solamente una opcion, y el value sera le valor que queremos que tenga-->
+            <input type="radio" id="femenino" name="genero" value="femenino"/>
+            <label for="femenino">Femenino</label>
+            <br/>
+
+            <label>Generos musicales favoritos</label>
+            <br/>
+            <!--Los checkboxes se utilizan para seleccionar varias opciones de las presentadas-->
+            <input type="checkbox" name="musica" id="clasica" value="clasica"/>
+            <label for="clasica">Clasica</label>
+            <br/>
+            <!--El name de las opciones tiene que ser el mismo para que estas se relacionen, y el value sera el valor que queremos que tenga-->
+            <input type="checkbox" name="musica" id="jazz" value="jazz"/>
+            <label for="jazz">Jazz</label>
+            <br/>
+
+            <label for="auto">Marca Auto Favorita:</label>
+            <br/>
+            <!--Para agregar una lista de opciones se puede utilizar un select
+                Si se quieren seleccionar varias opciones se tiene que agregar a la etiqueta de select el atributo de multiple -->
+            <select name="auto" id="auto" >
+                <!--Para agregar una pcion se utiliza la etiqueta de option-->
+                <option value="Volvo">Volvo</option>
+                <option value="bmw">BMW</option>
+                <!--Si se quiere mostrar una opcion predefinida se agrega el atributo de selected a la opcion que queramos-->
+                <option value="audi" selected>Audi</option>
+            </select>
+            <br/>
+
+            <label for="comentarios">Comentarios</label>
+            <br/>
+            <!--Si se quiere agregar un cuadro donde se puede escribir lo que el usuario quiera como comentarios, se agrega la etiqueta de textarea
+                Tambien se indica los renglones y columnas del cuadro, rows y cols-->
+            <textarea id="comentarios" name="comentarios" rows="2" cols="30"></textarea>
+            <br/><br/>
+
+            <!--Se agrega otra entrada de type buton en este caso submit(enviar, al servidor) para que envie la informacion-->
+            <input type="submit" value="Enviar"/>
+            <!--Para agregar un boton que envie el formulario sin necesidad de validar la informacion se coloca el atributo de formnovalidate-->
+            <input type="submit" formnovalidate="formnovalidate" value="Enviar sin validar"/>
+            <!--Para agregar un boton que restablezca los valores originales-->
+            <input type="reset" value="Resetear"/>
+        </fieldset>
+    </form>
+    
+</body>
+</html>

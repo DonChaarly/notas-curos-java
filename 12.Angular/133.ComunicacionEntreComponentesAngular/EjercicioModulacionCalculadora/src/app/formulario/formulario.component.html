@@ -1,0 +1,16 @@
+<form>
+  <div class="form-group col-md-4">
+    <label for="operandoA" >Operando A:</label>
+    <!--133 Hacemos Two Way Binding para mandar el valor del atributo operando A al formulario.component.ts-->
+    <input type="number" name="operandoA" placeholder="Operando A" class="form-control" [(ngModel)]="operandoA"/>
+  </div>
+  <br/>
+  <div class="form-group col-md-4">
+    <label for="operandoB" >Operando B:</label>
+    <!--133 Hacemos Two Way Binding para mandar el valor del atributo operando B al formulario.component.ts-->
+    <input type="number" name="operandoB" placeholder="Operando B" class="form-control" [(ngModel)]="operandoB" />
+  </div>
+  <br/>
+  <!--133 Con el concepto de Event binding capturamos el evento click y mandamos llamar el metodo sumarS-->
+  <button type="submit" class="btn btn-primary" (click)="sumar()" >Sumar</button>
+</form>

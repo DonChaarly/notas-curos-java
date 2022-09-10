@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://Apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+        <!--Especificamos el action de login para que en el momento que se seleccione este path nos rediriga al jsp de login-->
+        <action name="login">
+            <result>/WEB-INF/content/login.jsp</result>
+        </action>
+        
+        <!--Se especifica otro action para cuando se seleccione el path de input se regrese al formulario
+            y cuando se selecciones el de succes se mande al jsp de bienvenido
+            No es necesario que la clase coincida con el nombre de la clase java-->
+        <action name="validarUsuario" class="beans.actions.LoginAction">
+            <result name="success">/WEB-INF/content/bienvenido.jsp</result>
+            <!--Se especifica que es de tipo redirect para que se ejecute nuevamente el path que se definio anteriormente
+                Se coloca solo login ya que ese path ya se definio-->
+            <result name="input" type="redirectAction">login</result>
+        </action>
+    </package>
+</struts>

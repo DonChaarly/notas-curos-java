@@ -1,0 +1,8 @@
+Se agregaron los estilos de la clase al archivo styles.css y tambien la imagen a la carpeta assets
+Se generaron los componentes cabecero, formulario, ingresos y egresos
+Se crearon las clases de modelo ingreso.model y egreso.model
+Se creraron las clases de ingresoservicio y egresoServicio
+Se agregaron los servicio al archivo app.module.ts para que podamos utilizarlos en todos los compnentes
+Se agrego el import FormsModule para utilizar el concepton de TwoWayBanding
+
+

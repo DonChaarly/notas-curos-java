@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--112 Para poder manejar informacion dinamica en la aplicacion con thymeleaf se deben agregar las etiquetas de th
+    Salio un aviso de error pero le dimos desabilitar el aviso ya que este pedo esta al cien-->
+<!--120 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!--118 Se agrega la etiquet de header con el atributo de th:replace para mandar llamar la plantilla y el fragmento de header, se coloca la ruta en donde se encuentra el archivo seguido de :: y el nombre del fragmento-->
+        <header th:replace="layout/plantilla :: header"></header>
+        <!--116 Se agrega un link para agregar una persona con un atributo de thymeleaf para mandar llamar el motod agregar-->
+        <!--120 Se agrega el atributo de sec:authorize para indicar que usuario tiene autorizacion de ver este link-->
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{accion.agregar}"></a> 
+        <!--113. Utilizamos un if de thymeleaf para evaluar si la lista de personas es igual a null o esta vacia-->
+        <div th:if="${personas != null and !personas.empty}">
+            <table border="1">
+                <tr>
+                    <!--119 Se obtienen los mensajes del archivo messages.properties-->
+                    <th>[[#{persona.nombre}]]</th>
+                    <th th:text="#{persona.apellidoPaterno}"></th>
+                    <th>[[#{persona.apellidoMaterno}]]</th>
+                    <th th:text="#{persona.email}"></th>
+                    <th>[[#{persona.telefono}]]</th>
+                    <!--116 Agregamos las casillas para editar y eliminar lso registros-->
+                    <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{accion.eliminar}"></th>
+                </tr>
+                <!--113. Para repetir los renglones dependiendo de los datos de la tabla se utiliza un forEach de thymeleaf -->
+                <!--113. Lo que esta entre de las etiquetas no se muestra en la pagina es solo para informaciond de diseno-->
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre</td>
+                    <td th:text="${persona.apellidoPaterno}">Mostrar Apellido Paterno</td>
+                    <td th:text="${persona.apellidoMaterno}">Mostrar Apellido Materno</td>
+                    <td th:text="${persona.email}">Mostrar emial</td>
+                    <td th:text="${persona.telefono}">Mostrar telefono</td>
+                    <!--116 Agrgamos los link par editar y eliminar los registros, 
+                        Se tiene que adjuntar el id del registro por ello se adjunta por path variable con $[] 
+                        y se tiene que poner un / en el path de editar-->
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/editar/} + ${persona.idPersona}" th:text="#{accion.editar}"/></td>
+                    <!--Para pasar un parametro de tipo cuery Param se coloca entre parentesis despues del path de eliminar el parametro y el valor-->
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/eliminar(idPersona=${persona.idPersona})}"/>[[#{accion.eliminar}]]</td>
+                </tr>
+            </table>
+        </div>
+        <!--113 Utilizamos otro if de thyemelaf para evaluar si la tabla esta vacia y asi mandar un mensaje-->
+        <div th:if="${personas == null or personas.empty}">
+            [[#{persona.lista-vacia}]]
+        </div>
+        
+        <!--118 Se agrega el footer -->
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

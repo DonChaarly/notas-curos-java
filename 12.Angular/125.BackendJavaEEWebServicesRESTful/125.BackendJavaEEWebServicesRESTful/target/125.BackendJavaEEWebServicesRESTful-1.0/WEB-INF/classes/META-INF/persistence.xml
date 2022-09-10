@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <!--125 Se define el nombre de la unidad de persistencia-->
+    <persistence-unit name="PersonaPU">
+        <!--125 Se utiliza una conexion tipo JTA la cual ya se configuro en glassfish-->
+        <jta-data-source>jdbc/PersonaDb</jta-data-source>
+    </persistence-unit>
+</persistence>

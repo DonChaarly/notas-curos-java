@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h1>Aplicacion Calculadora</h1>
+    <hr/>
+    <!--133 Recibimos el resultado de la suma que nos envia el metodo resultadoObtenido.emit del archivo formulario . component . ts-->
+    <app-formulario
+    (resultadoObtenido)="enviarResultado($event)"
+    >
+    </app-formulario>
+    <br/>
+    <!--133 Mandamos la variable resultado al componente hijo resutlado-->
+    <app-resultado
+    [resultado] = "resultado"
+    ></app-resultado>
+  </div>
+</div>
+
+

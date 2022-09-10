@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--120 agregamos las etiquetas de thymeleaf y otro xmlns para desavilitar el error 
+    que nos marca el IDE pero esto nos obliga a tener que cerrar todas las etiquetas con un /> -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <!--120 ustilizamos un formulario para ingresar los datos del usuario, 
+            se tiene que utilizar el path de login para que spring reconozca el path-->
+        <form method="post" th:action='@{/login}'>
+            <!--Se tiene que utilizar el name usarname y password para que spring los reconozca-->
+            <label for='username'>Username:</label>
+            <input type="text" name='username' id='username'/>
+            <br/>
+            <label for='password'>Password:</label>
+            <input type="password" name='password' id='password'/>
+            <br/>
+            <input type="submit" value='Login'/>
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+Se instalo bootstrap con el comando npm install bootstrap jquery @popperjs/core
+Se modifico el style y scrip en el archivo angular.json
+Se modifico el archivo app.module.ts
+  Se agrego el import FormsModule para manejar el concepto de twoWayBanding
+Se modifico el app.component.ts
+Se creo un nuevo archivo en la carpeta de app llamado persona.model.ts ya que va a ser el modelo de la aplicacion
+Se modifico el app.component.html
+
+

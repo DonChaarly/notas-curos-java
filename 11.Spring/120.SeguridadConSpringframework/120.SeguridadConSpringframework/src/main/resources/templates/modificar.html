@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--116 agregamos las etiquetas de thymeleaf y otro xmlns para desavilitar el error 
+    que nos marca el IDE pero esto nos obliga a tener que cerrar todas las etiquetas con un /> -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Modificar Personas</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!--118 Se agrega la etiquet de header con el atributo de th:replace para mandar llamar la plantilla y el fragmento de header, se coloca la ruta en donde se encuentra el archivo seguido de :: y el nombre del fragmento-->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!--119 Se manda llamar los mensajes del archivo messages.properties-->
+        <h1>[[#{persona.formulario}]]</h1>
+        <a th:href="@{/}" th:text="#{accion.regresar}"></a>
+        <br/>
+        <!--116 Agregamos un formulario que mandara el path de guardar al controlador 
+            utilizando el metodo post y para asociar el obeto quemando el path de agregar utilizamos el atributo de thymeleaf object-->
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            
+            <!--116 Se coloca un input oculto para compartir el idPersona el cual puede ser null o tener un valor dependiendo si se va agregar un nuevo registro o solo modificar uno existente-->
+            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+            <br/>
+            <label for="nombre">[[#{persona.nombre}]]</label>
+            <!--Para acceder a un atributo del objeto persona utilizamos la etiqueta th:field y accedemos con un asterisco-->
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <!--117 Se agrega un span para mostrar la informacion en dado caso que haya un error
+                Se pregunta si el campo de nombre contiene errores y utilizamos la funcion fields.hasErrors el cual es un comodin
+                En dado caso que haya errores se despliega con el atributo th:errors y se pasa el atributo sobre el cual queremos obtener lso errores-->
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>Error de Nombre</span>
+            <br/>
+            <label for="apellidoPaterno">[[#{persona.apellidoPaterno}]]:</label>
+            <input type="text" name="apellidoPaterno" th:field="*{apellidoPaterno}"/>
+            <span th:if="${#fields.hasErrors('apellidoPaterno')}" th:errors='*{apellidoPaterno}'>Error de Apellido Paterno</span>
+            <br/>
+            <label for="apellidoMaterno">[[#{persona.apellidoMaterno}]]:</label>
+            <input type="text" name="apellidoMaterno" th:field="*{apellidoMaterno}"/>
+            <span th:if="${#fields.hasErrors('apellidoMaterno')}" th:errors='*{apellidoMaterno}'>Error de Apellido Materno</span>
+            <br/>
+            <label for="email">[[#{persona.email}]]:</label>
+            <input type="text" name="nombre" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors='*{email}'>Error de Email</span>
+            <br/>
+            <label for="telefono">[[#{persona.telefono}]]:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <!--119 el atributo de value se convirtio a un atributo de thymeleaf para poder mostrar el mensaje-->
+            <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+            
+        </form>
+        
+        <!--118 Se agrega el footer -->
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+Creamos un nuevo archivo desde la temrminal, ubicandonos primero en la carpteta donde queremos colocarlo
+  con el comando ng new (nombre del archivo)
+Copiamos los archivos de la clase, los estilos css los colocamos en el archivo styles.css y
+  la imagen la colocamos en la carpeta de assets
+Eliminamos el archivo app.component.css y el app.component.spect
+Se modifico el archivo component.html
+Se creo una nueva clase Persona.model (Se creo desde la terminal escribiend o)
+Se creo la clase DataService
+  Esta clase se va a encargar de conectarse a los webServices utilizando la clase httpclient de angular
+Se creo la clase PersonaService la cual va a administrar el arreglo de personas que vamos autilizar para desplegar la infomracion
+Se registraron los servicio de pesronaService y dataService en el archivo app.module.ts
+Se creo un nuevo componente en la carpeta de app llamado personas
+  El componente se encargara de desplegar el listado de personas y de las secciones de editar, agrear y eliminar
+Se modifico el archivo app-routing.module.ts
+  Se agregaron los url de las vistas
+Se modifico el app.component.html
+Se agrego el componente de formulario
+

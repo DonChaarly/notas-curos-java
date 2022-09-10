@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--112 Para poder manejar informacion dinamica en la aplicacion con thymeleaf se deben agregar las etiquetas de th
+    Salio un aviso de error pero le dimos desabilitar el aviso ya que este pedo esta al cien-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <!--113. Utilizamos un if de thymeleaf para evaluar si la lista de personas es igual a null o esta vacia-->
+        <div th:if="${personas != null and !personas.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+                <!--113. Para repetir los renglones dependiendo de los datos de la tabla se utiliza un forEach de thymeleaf -->
+                <!--113. Lo que esta entre de las etiquetas no se muestra en la pagina es solo para informaciond de diseno-->
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre</td>
+                    <td th:text="${persona.apellidoPaterno}">Mostrar apellido Paterno</td>
+                    <td th:text="${persona.apellidoMaterno}">Mostrar apellido Materno</td>
+                    <td th:text="${persona.email}">Mostrar emial</td>
+                    <td th:text="${persona.telefono}">Mostrar telefono</td>
+                </tr>
+            </table>
+        </div>
+        <!--113 Utilizamos otro if de thyemelaf para evaluar si la tabla esta vacia y asi mandar un mensaje-->
+        <div th:if="${personas == null or personas.empty}">
+            La lista de personas esta vacia
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="col">
+    <h1>{{ titulo }}</h1>
+  </div>
+  <hr/>
+  <!--132 Se coloca un formulario para agregar el nombre y apellido de nuevas personas-->
+  <form >
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label for="nombre" class="visually-hidden">Nombre</label>
+        <!--132 Se utiliza el concepto de Two Way Binding para mandar informacion al component.ts-->
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="apellido" class="visually-hidden">Apellido</label>
+        <!--132 Se utiliza el concepto de Two Way Binding para mandar informacion al component.ts-->
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" [(ngModel)]="apellidoInput">
+      </div>
+      <!--132 Se agrega un boton al que se le asocia el evento click y se manda llamar el metodo agregarpersona-->
+      <div class="col">
+        <button type="submit" class="btn btn-primary" (click)="agregarPersona()">Agregar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <hr/>
+  <div class="row">
+    <div class="col">
+      <!--132 Utilizamos la directiva *ngFor para iterar los elementos del
+        arreglo de pesonas, se declara una variable donde se almacenaran los objetos persona
+        Y se especifica el nombre del arreglo
+        Tambien se puede especificar el indice del elmento del arreglo con la directiva index del ngfor-->
+      <div *ngFor="let persona of personas; let i = index">
+        {{ i + 1 }} {{persona.nombre}} {{persona.apellido}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

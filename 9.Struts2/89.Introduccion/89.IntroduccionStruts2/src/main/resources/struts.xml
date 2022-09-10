@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    
+<struts>
+    <!--Especificamos cual es el tipo de paquete que vamos a utilizar-->
+    <package name="struts2" extends="struts-default">
+        <!--Configuramos la accion que se va a ejecutar-->
+        <action  name="saludar" class="beans.HolaMundoAction">
+            <!--Capturamos la cadena de exito con el tag de resutl e indicamos el JSP que se va a ejecutar-->
+            <result name="exito" >/saludos.jsp</result>
+        </action>
+    </package>
+</struts>

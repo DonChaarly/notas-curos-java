@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Listado de personas</title>
+    </h:head>
+    <!--Se va agregar varias caracteristicar para que se pueda mostrar la tabla de JSF pero ahora utilizando el componente de primefaces-->
+    <h:body>
+        <!--Con ajaxStatus se muestra el status de la peticion que estamos haciendo-->
+        <p:ajaxStatus style="width: 16px;height: 16px;" id="ajaxStatusPanel">
+            <!--Con facet cuando se este realizando un trabajo de tipo ajax se mostrara una imagen-->
+            <f:facet name="start">
+                <h:graphicImage library="images" name="ajaxloading.gif"/>
+            </f:facet>
+            <f:facet name="complete">
+                <!--Se agrega una cadena vacia para limpiar lo que se haya mostrado-->
+                <h:outputText value=""/>
+            </f:facet>
+        </p:ajaxStatus>
+        <!--Se agrega un formulario con el atributo de prependId en false para que no agregue el nombre del formulario en cada uno de los elementos-->
+        <h:form id="personasListForm">
+            <!--Se agrega una etiqueta growl y messages para mostrar un mensaje y con el atributo de ahowDetail en true para que muestre los mensajes en dado caso que se genere alguno-->
+            <p:growl id="messages" showDetail="true"/>
+            <p:messages/>
+
+            <!--Se agrega un dataTable para utilizando primefaces y accederemos a un objeto personaBean que tendra un listado de personas
+                Se le asigna el nombre de persona a cada uno de los elementos y se agrega el atributo de editable para que se puedan editar los elementos
+                Se agrega el atriburo rowkey para indicar el id de la persona que se esta seleccionando
+                Con selecction hacemos que se actualice en automático la personaSeleccionada
+                Con selectionMode en sinlge solo podemos seleccionar un registro a la vez -->
+            <p:dataTable id="personasDataTable" value="#{personaBean.personas}" var="persona" editable="true" rowKey="#{persona.idPersona}" 
+                         selection="#{personaBean.personaSeleccionada}" selectionMode="single">
+                <!--Se agrega un facet para mostrar el cabecero de la tabla-->
+                <f:facet name="header">
+                    Listado de personas
+                </f:facet>
+
+                <!--Agregamos la columna del id-->
+                <p:column headerText="Id">
+                    <h:outputText value="#{persona.idPersona}"/>
+                </p:column>
+
+                <!--Agregamos una columna para el campo de nombre-->
+                <p:column headerText="Nombre">
+                    <!--Para poder editar la columna se agrega la etiqueta de cellEditor la cual nos puede mostrar informacion y tambien modificar-->
+                    <p:cellEditor>
+                        <!--Para mostrar informacion-->
+                        <f:facet name="output">
+                            <!--Se agrega un outputTesxt que manejara el atributo de nombre-->
+                            <h:outputText value="#{persona.nombre}"/>
+                        </f:facet>
+                        <!--Para modificar informacion-->
+                        <f:facet name="input">
+                            <h:inputText value="#{persona.nombre}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <!--Se hace lo mismo para la columna de apellido, email y telefono-->
+                <p:column headerText="Apellido">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.apellido}"/>
+                        </f:facet>
+
+                        <f:facet name="input">
+                            <h:inputText value="#{persona.apellido}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>    
+
+                <p:column headerText="Email">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.email}"/>
+                        </f:facet>
+
+                        <f:facet name="input">
+                            <h:inputText value="#{persona.email}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Telefono">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.telefono}"/>
+                        </f:facet>
+
+                        <f:facet name="input">
+                            <h:inputText value="#{persona.telefono}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <!--Agregamos el footer de la tabla-->
+                <f:facet name="footer">
+                    <!--Boton de regresar-->
+                    <p:commandButton value="Regresar" action="index"/>
+                    <p:spacer height="5px"/>
+                    <!--Boton de agregar
+                        Se actualiza el dialogForm el cual es para agregar una nueva persona     
+                        con oncomplete cuando se complete mandamos a llamar el metodo de PrimeFaces personaDialog-->
+                    <p:commandButton value="Agregar" actionListener="#{personaBean.reiniciarPersonaSeleccionada()}" 
+                                     update=":dialogForm" oncomplete="PF('personaDialog').show()"/>
+                </f:facet>
+                                
+                <!--Para poder editar los elementos de la tabla se debe agregar el tag de roomeditor-->
+                <p:column headerText="Opciones" style="width: 50px">
+                    <p:rowEditor/>
+                </p:column>
+
+                <!--Se agrega un evento llamado rowEdit para cuando se modifique una celda se mande a llamar el metodo editListener del personaBean-->
+                <p:ajax event="rowEdit" listener="#{personaBean.editListener}"/>
+
+            </p:dataTable>
+
+            <!--Se agrega un menuContextual en el que se accede al dar  clik derecho sobre un registro, si se agregan comentarios dentro de la siguiente etiqueta se tienen errores-->
+            <p:contextMenu for="personasDataTable">
+                <p:menuitem value="Eliminar" update="personasListForm:personasDataTable" icon="ui-icon-close" 
+                            actionListener="#{personaBean.eliminarPersona()}"/>
+            </p:contextMenu>
+
+        </h:form>
+
+        <!--Se agrega el dialogo para agregar una nueva pesona
+            con el widgetVar defnimos el nombre con el que podemos referenciarlo
+            indicamos que sea de tipo modal para que se muestre encima de la pagina html
+            agregamos un efecto fade para que se muestre paulatinamente
+            Con resizable indicamos que no se pueda reajustar la ventana-->
+        <p:dialog id="personaDlg" widgetVar="personaDialog" header="Agregar Persona" modal="true" showEffect="fade" hideEffect="fade"
+                  resizable="false">
+            <h:form id="dialogForm" >
+                <p:outputPanel id="personaDetail" style="text-align: center">
+                    <p:panelGrid id="display" columns="4" columnClasses="label, value">
+                        <h:outputText value="Nombre"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.nombre}"/>
+
+                        <h:outputText value="Apellido"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.apellido}"/>
+
+                        <h:outputText value="Email"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.email}"/>
+
+                        <h:outputText value="Telefono"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.telefono}"/>
+
+                        <f:facet name="footer">
+                            <p:commandButton value="Agregar" actionListener="#{personaBean.agregarPersona()}" 
+                                             update="display,:personasListForm:personasDataTable" oncomplete="PF('personaDialog').hide()"/>
+                        </f:facet>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </h:form>
+        </p:dialog>
+
+
+    </h:body>
+</html>

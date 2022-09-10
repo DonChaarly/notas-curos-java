@@ -1,0 +1,31 @@
+
+/*Con * indicamos que los siguientes estilos aplicaran a toda la pagina HTML*/ 
+*{
+    margin: 0;
+    padding: 0;
+}
+/*Para crear un identificador se coloca un # seguido del nombre que queremos dar al identificador
+  Los identificadores se deberan asignaran a un solo elemento HTML a diferencia de las clases que puede ser a cualquier elemento*/
+#titulo_principal{
+    color:#f72585;
+    text-align: center;
+    margin: 15px;
+}
+h2{
+    color: #3f37c9
+}
+p{
+    color:#457b9d;
+}
+/*Para crear una clase se colocaun punto y el nombre que le queremos dar a esa clase
+  Los siguientes estilos van a ser agregados a los elemetos que esten señalados con el atributo tarjeta*/
+.tarjeta{
+    border:10px solid #560bad;
+    background-color: #f1faee;
+    text-align: center;
+    margin: 15px 100px;
+    padding: 15px;
+}
+.titulo-uno{
+    color: #f72585;
+}

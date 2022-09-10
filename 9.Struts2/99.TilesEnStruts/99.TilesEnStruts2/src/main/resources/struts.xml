@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!--Se especifica donde se encuentran nuestras clases de tipo action-->
+    <constant name="struts.convention.default.parent.package" value="mx.com.gm.actions"/>
+    <package name="mx.com.gm.actions" extends="struts-default">
+        <!--Se configuran los returns que hace nuestra clase de linkAction-->
+        <result-types>
+            <!--Se especifica que el tipo de regreso va a ser de tipo tiles y el nombre de la clase-->
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+            <!--No es necesario mapear cada uno de los resultados de la clase LinkAction, debido a que se marcaron de tipo tiles, y stuts sabra cual mapear-->
+        </result-types>
+    </package>
+</struts>
+

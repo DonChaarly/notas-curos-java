@@ -1,0 +1,18 @@
+<h1>{{ titulo }}</h1>
+<form>
+  <div class="form-group col-md-4" >
+    <label for="sumandoA">Sumando A:</label>
+    <input type="number" name="sumandoA" placeholder="Escribe Operando A" class="form-control" required [(ngModel)]="sumandoA">
+  </div>
+  <br/>
+  <div class="form-group col-md-4" >
+    <label for="sumandoB">Sumando B:</label>
+    <input type="number" name="sumandoB" placeholder="Escribe Operando B" class="form-control" required [(ngModel)]="sumandoB">
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-primary" (click)="sumar()">Sumar</button>
+
+    <p>Resultado: {{ resultado }}</p>
+
+</form>
+

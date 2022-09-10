@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Se creo la carpeta reources en el la ruta src/main-->
+
+<!--Se agrega lo siguiente para la configuracion de log4j2-->
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--El patron es la forma en que se mostraran los elementos
+                Hay mas informacion sobre estos patrones en: http://logging.apache.org/log4j/2.x/manual/layouts.html-->
+            <PatternLayout pattern="d%{HH:mm:ss} [%t] %-5level %logger{36} -%msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!--Nivel del debug-->
+        <Root level="debug">
+            <!--Referencia del apender-->
+            <AppernderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

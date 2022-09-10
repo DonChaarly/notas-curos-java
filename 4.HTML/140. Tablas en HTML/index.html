@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas en HTML</title>
+    <link href="/css/estilos.css" rel="stylesheet"/>
+</head>
+<body>
+    <!--Con table se declara una tabla de HTML-->
+    <table>
+        <!--Para agregar un titulo a la tabla se utiliza la etiqueta de caption-->
+        <caption>Listado de personas</caption>
+        <!--Se define un table roll, el cual define un nuevo renglon-->
+        <tr>
+            <!--En este primer renglon se puede colocar el cabecero o table head-->
+            <!--para unir celdas se coloca colspan como atributo-->
+            <th colspan="2">Nombre</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <!--En este siguiente renglon usaremos td que es table data ya no sera el cabecero-->
+            <td>Juan</td>
+            <td>Perez</td>
+            <!--Par expandir una celda y que ocupe dos renglones-->
+            <td rowspan="2">jperez@mail.com</td>
+        </tr>
+        <tr>
+            <td>María</td>
+            <td>Lara</td>
+        </tr>
+        <tr>
+            <td>Carlos</td>
+            <td>Juarez</td>
+            <td>cjuarez@mail.com</td>
+        </tr>
+        <tr>
+            <td>karla</td>
+            <td>Esparza</td>
+            <td>kesparza@mail.com</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

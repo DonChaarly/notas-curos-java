@@ -1,0 +1,16 @@
+
+
+
+			PIPES
+
+	Los pipies en las vistas html se utilizan para dar formato al contenido de una variable dentro de llaves
+	como para mostrar una fecha como se quiere, o que un texto se vea en mayuscular
+	Hay diferentes pipe, investigalos prro flojo
+
+
+
+	ejemplo de pipe para transformar una cadena en mayusculas
+
+	<p>
+		{{ cadenaString | uppercase}}
+	</p>

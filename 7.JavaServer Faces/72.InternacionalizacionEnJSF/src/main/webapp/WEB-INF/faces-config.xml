@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                        http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+    version="2.3">
+    
+    <lifecycle>
+        <phase-listener>
+            beans.lifecycle.DebuggerListener
+        </phase-listener>
+    </lifecycle>
+    <!--Para realizar la asociacion de nuestros archivos de propiedades-->
+    <application>
+        <!--especificamos que idioma queremos por default-->
+        <locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+        <!--Agregamos el archivo que creamos para mostrar las etiquetas de formulario-->
+        <resource-bundle>
+            <!--Agregamos el nombre del archivo-->
+            <base-name>mensajes</base-name>
+            <!--Agregamos un nombre de variable ek cual vamos a utilizar en nuestro archivo JSF-->
+            <var>msgs</var>
+        </resource-bundle>
+        <!--especificamos nuestro archivo de jsf.properties-->
+        <message-bundle>jsf</message-bundle>
+    </application>
+        
+        
+
+</faces-config>

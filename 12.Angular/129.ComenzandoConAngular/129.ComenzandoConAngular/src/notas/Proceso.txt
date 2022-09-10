@@ -1,0 +1,23 @@
+              Archivos en los proyectos de Angular
+Carpeta node_modules: Nos permite ejercutar las apliaciones de Angular, los modulos se encuentran instalados en esa Carpeta
+                      Solo Se requiere cuando se esta desarrollando la aplicacion
+                      Cuando no se tiene esta carpeta se escribe en la terminal el comando npm install, con esto se creara la carpeta
+Carpeta de src: Esta carpeta contendra el codigo fuente de la aplicacion
+Archivo index.html: Esta archivo contendra la vista principal de la aplicacion
+                      Dentro del index se encunentra la etiqueta <app-root></app-root> la cual inyecta los componentes de la carpeta app
+Carpeta app: Es el primer componente que tenemos en nuetro proyecto
+              Los componentes se componen de archivos css, html y codigo TypeScript
+Archivo component.ts: En este archivo se definen el selector con el que se va a llamar el componente desde el archivo index
+                      Seguido se define la plantilla que se va a llamar con el selector y los estilos que se van a utilizar
+Archivo de Angular.json: En este archivo se configura los archivos de la apliaciones
+Archivo de package.json En este archivo se administran las librerias de la aplicacion
+
+              Extenciones en los archivos
+Extencion ts: TypeScript ( es como JavaScript pero mejorado)
+Extencion html: lenguaje de vista html
+Extencion css: hojas de estilos css
+
+
+
+
+

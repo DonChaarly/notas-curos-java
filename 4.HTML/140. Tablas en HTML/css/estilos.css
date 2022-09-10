@@ -1,0 +1,47 @@
+/*Estilos de tablas con CSS*/
+table{
+    /*Para hacer que la tabla ocupe todo el espacio a lo ancho*/
+    width: 100%;
+}
+/*Para modificar el titulo*/
+caption{
+    color:#e63946;
+    /*tipo defuente*/
+    font-family:"trocchi", serif;
+    /*Tamaño de fuente*/
+    font-size: 45px;
+    /*ancho de linea superior e inferior*/
+    line-height:70px ;
+}
+/*Para aplicar el mismo estilo a varios elementos, estos se separan por una coma*/
+table, th, td{
+    border: 1px solid black;
+    /*Para que no se visualice el centro de los borde, osea que se colapse*/
+    border-collapse: collapse;
+    /*Para aumentar el tamaño del centro de los bordes*/
+    /*border-spacing: 5x;*/
+    padding: 5px;
+}
+/*Por defecto el contenido de th esta centrado y en negritas, y el td normal y hacia la izquierda*/
+/*
+td{
+    /*Si queremos centrar el texto
+    text-align:center; 
+}
+th{
+    /*Si queremos el texto a la izquierda
+    text-align:left;
+}
+*/
+th{
+    color:#f1faee;
+    background-color: #1d3557;
+}
+
+/*Para seleccionar renglones pares(even) o impares(odd)*/
+tr:nth-child(even){
+    background-color: #f1faee;
+}
+tr:nth-child(odd){
+    background-color: #a8dadc;
+}

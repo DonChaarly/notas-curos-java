@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--116 agregamos las etiquetas de thymeleaf y otro xmlns para desavilitar el error 
+    que nos marca el IDE pero esto nos obliga a tener que cerrar todas las etiquetas con un /> -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Datos de la persona</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <!--116 Agregamos un formulario que mandara el path de guardar al controlador 
+            utilizando el metodo post y para asociar el obeto quemando el path de agregar utilizamos el atributo de thymeleaf object-->
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            
+            <!--116 Se coloca un input oculto para compartir el idPersona el cual puede ser null o tener un valor dependiendo si se va agregar un nuevo registro o solo modificar uno existente-->
+            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+            <br/>
+            <label for="nombre">Nombre:</label>
+            <!--Para acceder a un atributo del objeto persona utilizamos la etiqueta th:field y accedemos con un asterisco-->
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" name="apellidoPaterno" th:field="*{apellidoPaterno}"/>
+            <br/>
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" name="apellidoMaterno" th:field="*{apellidoMaterno}"/>
+            <br/>
+            <label for="email">Email:</label>
+            <input type="email" name="nombre" th:field="*{email}"/>
+            <br/>
+            <label for="telefono">Telefono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
+            
+        </form>
+    </body>
+</html>

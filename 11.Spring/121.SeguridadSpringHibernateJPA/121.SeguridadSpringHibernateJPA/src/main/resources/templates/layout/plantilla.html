@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--118 Se agregan los namespaces de html y thymeleaf-->
+<!--120 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www/thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!--118 Se coloca en una etiqueta de header con el atributo de frangment indicando el nombre con el que se va a llamar el fragmento desde otra vista-->
+        <!--119 Para colocar un mensaje del archivo messages.properties se puede poner el atributo th:text y entre #{} colocar el nombre del mensaje que se quiere-->
+        <header th:fragment="header">
+            <h1 th:text="#{plantilla.titulo}"></h1>
+        </header>
+        
+        <!--118 Se coloca una plantilla para el footer-->
+        <!--119 Se colocan los link para cambiar el idioma colocando el parametro que especificamos en el archivo WebConfig-->
+        <!--119 Si se coloca el atributo th:text se sustituye todo el texto dentro del span perdiendo el link
+            Se tiene otra forma de mandar llamar mensajes del archivo messages.properties y es colocando [[]] con esto no se pierde el texto del parrafo-->
+        <footer th:fragment="footer">
+            <div>
+                <br/>
+                <a th:href="@{/(lang=es)}">ES</a> |
+                <a th:href="@{/(lang=en)}">EN</a> |
+                <span>[[#{plantilla.pie-pagina}]] <a href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.mx</a></span> 
+                <br/>
+                <!--120 Se coloca un formulario ya que se debe hacer submit para poder hacer logout el cual debe ser de tipo POST
+                    se debe utilizar el path de logout para que springSecurity reconozca que queremos salir-->
+                <form method="post" th:action='@{/logout}'>
+                    <!--mostramos cual es el usuario que hizo login y sus roles-->
+                    <b>User: </b> <span sec:authentication="name">Usuario que hizo login</span> |
+                    <b>Roles: </b> <span sec:authentication="principal.authorities">Roles</span> |
+                    <!--120 con el evento onClik especificamos que se haga submit del formulario -->
+                    <a href="#" onclick="this.parentNode.submit();">[[#{plantilla.logout}]]</a>
+                    
+                </form>
+            </div>
+        </footer>
+    </body>
+</html>

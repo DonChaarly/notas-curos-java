@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Listado de Personas</h1>
+      <!--131 Property Binding  - se puede desabilitar el boton de manera dinamica con disabled entre corchetes se le puede asignar un valor de un atributo-->
+      <!--131 Event Binding - Con el evento click (onClick asi es en java) lo capturamos entre parentesis e indicamos el metodo que se va a mandar llamar -->
+      <button class="btn btn-primary" [disabled]="deshabilitar" (click)="agregarPersona()">Agregar persona</button>
+      <!--132 Se coloca la directiva *ngIf para mostrar o no este mensaje, y se le asigna la variable mostrar
+              Se puede colocar tambien la directiva else para que se ejecute otro codigo en caso que no se cumpla la condicion-->
+      <p *ngIf="mostrar; else sinPersona" >{{ mensaje }} con el titulo de {{ titulo }}</p>
+      <!--132 Se coloca la etiqueta ng-template para la parte de codigo que se ejecutara en el else y se coloca el identificador con el #-->
+      <ng-template #sinPersona>
+        <p>No se ha agregado ninguna persona</p>
+      </ng-template>
+
+      <!--130 Podemos enbeber las vistas de otros componentes en otros componetes-->
+      <app-persona></app-persona>
+
+      <!--131 Event Binding - Para capturar el evento de un input se tiene que capturar por medio de una variable la cual se va a pasar al metodo-->
+      <label>Titulo Persona</label>
+      <input type="text" class="form-control" (input)="modificarTitulo($event)"/>
+      {{ titulo }}
+      <br/>
+
+      <!--131 Two Way Binding - Se agrega la propiedad de ngModel para manejar este concepto y se le asigna el valor de tipo que se definio en el component.ts-->
+      <label> Tipo Persona</label>
+      <input type="text" class="form-control" [(ngModel)]="tipo" />
+      {{ tipo }}
+    </div>
+  </div>
+</div>

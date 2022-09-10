@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>gm.com.mx</groupId>
+    <artifactId>78.EJBsEnJavEE</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--Se utiliza el JDK 1.8 ya que es la que soporta la version empresarial
+            También se tiene que verificar que en las propiedades del archivo se este utilizando la version 1.8 en el source y el compile-->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <!--Se agregan las siguientes librerias-->
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0.1</version>
+            <!--Glassfish ya cuenta con estas dependecias, por ellos marcamos como probeidas-->
+            <scope>provided</scope>
+        </dependency>
+        <!--Agregamos la libreria para ejecutar el cliente del EJB-->
+        <dependency>
+            <groupId>org.glassfish.main.appclient</groupId>
+            <artifactId>gf-client</artifactId>
+            <!--Utilizamos la version mas estable de glassfish-->
+            <version>5.0</version>
+        </dependency>
+    </dependencies>
+</project>

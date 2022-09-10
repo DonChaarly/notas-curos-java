@@ -1,0 +1,20 @@
+ol{
+    list-style: none;
+    /*Cada vez que se utilice una nueva lista ordenada se reseteara el elemento de contador*/
+    counter-reset: contador;
+
+}
+ol li{
+    /*Cada vez que se use un elemento de la lista ordenada se incrementara el contador*/
+    counter-increment: contador;
+}
+/*Para modificar lo que se muestra antes de los elementos de la lista ordenada*/
+ol li::before{
+    /*Con content agregamos algo antes de cada elemento de la lista*/
+    content: "Curso " counter(contador) ") ";
+    color: #ff6f00;
+}
+/*Para modificar lo que se muestra despues de los elementos de la lista ordenada*/
+ol li::after{
+    content: ".";
+}

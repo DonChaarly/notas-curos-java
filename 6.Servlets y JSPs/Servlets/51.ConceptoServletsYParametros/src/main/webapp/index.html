@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario Servlet</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Formulario Servlet</h1>
+        <!--En el atributo action se especifica la ruta para llamar al servlet
+            Se especifica que se utilizara el metodo post para mandar la informacion-->
+        <form name="form1" action="/51.ConceptoServletsYParametros/Servlet" method="post">
+            <!--Con el name es como se recuperara el elemento html desde el servlet-->
+            Usuario: <input type="text" name="usuario"/> 
+            <br/>
+            Password: <input type="password" name="password"/>
+            <br/>
+            <input type="submit" value="enviar"/>
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<div style="text-align: center;">
+  <!--127 Asociamos el metodo click a uno de angular-->
+  <button style="cursor: pointer" (click)= "irAgregar()">+</button>
+</div>
+
+<div class="box">
+  <!--127 el atributo *ngFor nos sirve para iterar los datos del arreglo, la lista se debe declarar en el archivo personas.component.ts -->
+  <div class="item" *ngFor="let persona of personas">
+    <ul>
+      <li>
+        <!--127 Se utiliza el conepto de routerLink para proporcionar un parametro en el path del link-->
+        <a [routerLink]="['/personas', persona.idPersona]">
+          {{persona.nombre}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--128 Incrusa el componente de Formulario-->
+<router-outlet></router-outlet>

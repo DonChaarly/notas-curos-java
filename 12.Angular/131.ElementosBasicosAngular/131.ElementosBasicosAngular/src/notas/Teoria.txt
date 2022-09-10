@@ -1,0 +1,23 @@
+              Interpolacion (en persona.component.html)
+Tiene que ver con agragar texto dinamico a las plantillas html
+Para agregar texto dinamico se utiliza la sintaxis de doble llave {{}}
+y dentro se incluye la variable o expersion que se quiere agregar
+
+              Template Reference variable (en persona.component.html)
+Este concepto se refiere a que podemos asignar un nombre a alguno componente de html y posteriormente
+utilizar el valor que almacena el componente
+
+              Propertiy Binding (en personas.component.html y ts)
+Propertiy binding es un conepto que nos permite asignar valores a las propiedades de los elmentos html
+
+              Event Binding ( en pesonas.component.html y ts)
+Event Binding nos permite capturar los eventos de los componentes html
+
+
+              Two Way Banding ( en personas.component.html y ts)
+Two Way Binding  es una forma que tenemos de comunicarnos entre nuestros compomentes ya que se podra enviar
+informacion desde la plantilla html hacia el componente de angular y vicebersa y basicamente se convina property y event Binding
+Se tiene que agregar un nuevo modulo al proyecto de angular en el archivo app.module.ts se importa el modulo de FormsModule
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM HTML con JavaScript</title>
+</head>
+<!--Evento onload -> Este evento se activa cuando se carga nuestra pagina web-->
+<body onload="mostrarAlerta()">
+    <!--Evento onclick -> Este evento se activa cuando se hace click sobre el elementos HTML-->
+    <!--Se utiliza este evento para llamara a una funcion y se le pasa el argumento this, osea el propio objeto h1-->
+    <h1 onclick="cambiarTitulo(this)">Manejo DOM con JavaScript</h1>
+    <br/>
+    <p id="parrafo">Parrafo parrafino</p>
+    <br/>
+    <div id="mostrar"></div>
+    <br/>
+    <div id ="cookies"></div>
+    <br/>
+    <!--Evento onchange -> Este evento se activa al detectar un cambio en el elemento html-->
+    Escribe: <input type="text" onchange="mayusculas(this)"/>
+    <br/>
+    <!--Evento onmouseover -> Este evento se activa al colocarte encima de un elemento html-->
+    <!--Evento onmouseout -> Este evento se activa al colocarte encima de un elemento html-->
+    <h2 onmouseover="textoRojo(this)" onmouseout="textoAzul(this)">Coloca el mouse sobre mi</h2>
+    <br/>
+    <!--Evento onmousedown -> Este evento se activa al dar click en el elemento html-->
+    <!--Evento onmouseup -> Este evento se activa al dejar de dar click en el elemento html-->
+    <h2 onmousedown="textoRojo(this)" onmouseup="textoAzul(this)">Da click sobre mi</h2>
+    <br/>
+    <!--Evento onfocus -> Este evento se activa cuando el elemnto html tiene el foco en el, osa cuando esta seleccionado-->
+    <!--Evento onblur -> Este evento se activa cuando el elemnto html pierde el foco en el, osa cuando ya no esta seleccionado-->
+    Nombre: <input type="text" onfocus="fondoAmarillo(this)" onblur="fondoBlanco(this)">
+    <br/><br/>
+    Apellido: <input type="text" onfocus="fondoAmarillo(this)" onblur="fondoBlanco(this)">
+    <br/><br/>
+    Nombre: <input type="text" id="nombre"/>
+    <br/><br/>
+    Apellido: <input type="text" id="apellido"/>
+    <br/><br/>
+    <form id="forma">
+        <h1>Formulario</h1>
+        Nombre: <input type="text"/>
+        <br/><br/>
+        Apellido: <input type="text"/>
+        
+    </form>
+    <script>
+
+        function cambiarTitulo(titulo){
+            console.log(titulo.innerHTML);
+            titulo.innerHTML = "Nuevo Titulo";
+            console.log(titulo);
+            console.log(titulo.innerHTML);
+        }
+
+        //Se puede asociar eventos directamente desde el codigo JavaScrip
+        document.getElementById("parrafo").onclick = mostrarEnDiv;//Cuando se haga click en parrafo se llamara a la funcion la cal no necesita parentesis para ser llamada
+        function mostrarEnDiv(){
+            document.getElementById("mostrar").innerHTML = "Nuevo contenido"
+        }
+
+        function mostrarAlerta(){
+            //Para mostrar una ventana popop que muestra un mensaje se puede utilizar la funcion alert
+            alert("Entrando a la pagina web");
+            let texto = "";
+            //Navigator es un objeto con el cual podemos preguntar distintas cosas de la pagina, por ejemplo si las cookies estan habilitadas
+            if(navigator.cookieEnabled){
+                texto = "Cookies habilitadas";
+            }else{
+                texto = "Cookies deshabilitadas";
+            }
+            document.getElementById("cookies").innerHTML = texto;
+        }
+
+        function mayusculas(texto){
+            texto.value= texto.value.toUpperCase();
+        }
+
+        function textoRojo(texto){
+            texto.style.color = "red";
+        }
+
+        function textoAzul(texto){
+            texto.style.color = "blue";
+        }
+        
+        function fondoAmarillo(elementoInput){
+            elementoInput.style.background = "yellow";
+        }
+
+        function fondoBlanco(elementoInput){
+            elementoInput.style.background = "white";
+        }
+
+        //Con addEventListener -> Se llama a una funcion cuando se cumpla un evento como focus o blur
+        document.getElementById("nombre").addEventListener("focus", fondoAmarillo2);
+        document.getElementById("nombre").addEventListener("blur", fondoBlanco2);
+
+        //Funciones flecha en addEvenListener, se puede colocar una funcion flecha en el parametro de funcion pero este codigo ya no se podra utilizar en otra parte
+        document.getElementById("apellido").addEventListener("focus", (evento) => {evento.target.style.background = "pink";});
+        document.getElementById("apellido").addEventListener("blur", (evento) => {evento.target.style.background = "";});
+
+        function fondoAmarillo2(evento){
+            //addEventListener nos regresa el evento, tenemos que espicificar el target en donde se llevo acabo ese evento
+            evento.target.style.background = "yellow";
+        }
+        function fondoBlanco2(evento){
+            evento.target.style.background = "white";
+        }
+
+        //Para aplicar la funcion al momento del evento a todos los elementos, primero se tiene que tener los elementos dentro de un forulario
+        //Se debe agregar un parametro mas para indicar que se va a delegar esta funcion tambien a los lementos mas especificos del formulario
+        document.getElementById("forma").addEventListener("focus", (evento) => {evento.target.style.background = "green";}, true);
+        document.getElementById("forma").addEventListener("blur", (evento) => {evento.target.style.background = "";}, true);
+    </script>
+    
+</body>
+</html>

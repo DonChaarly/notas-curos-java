@@ -1,0 +1,21 @@
+<!--131 Interpolacion - Para llamar los atributos del component.ts se utiliza doble llave
+        Para acceder a atributos privados se tiene que acceder por medio de los metodos get
+        Tambien se puede hacer uso de expresiones como al concatenar el valor de edad y un numero-->
+<p>
+  Nombre: {{ nombre }}
+  Apellido: {{ apellido }}
+  Edad: {{ getEdad() + 1 }}
+</p>
+
+<!--131 TemplateReferenceValue
+        Con keyup se captura el evento cuando tecleamos cualquier tecla y en este caso le estsamos dando un tiempo de 0
+        -->
+<div (keyup)="0">
+  <label>Repetidor:</label>
+  <!--131 Se le asigna un nombre al input con #-->
+  <input #entrada/>
+  <!--Con interpolacion accedemos al valor del input-->
+  {{ entrada.value }}
+</div>
+
+

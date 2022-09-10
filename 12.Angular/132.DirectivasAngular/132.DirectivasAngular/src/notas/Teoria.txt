@@ -1,0 +1,5 @@
+            Directiva ngIf
+Esta directiva nos permite mostrar o ocultar una elemnto html en la vista
+dependiendo del estado de la variable que le asignemos
+Tambien se puede incluir una directiva else para el caso contrario
+

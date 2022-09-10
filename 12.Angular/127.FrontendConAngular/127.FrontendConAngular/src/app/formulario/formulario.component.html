@@ -1,0 +1,13 @@
+<div class="box">
+  <!--127 Definimos el nombre del formulario con #f
+          con el evento ngSubmit osea cuando se envie el formulario, preguntamos si los campos son validos y mandamos el metodo guardarPersona-->
+  <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && onGuardarPersona()">
+    <!--127 Con ngmModel asociamos el campo de nombre input, cualquier cabmio que hagamos se actualizara el campo de nombreInput-->
+    <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="nombreInput" required/>
+    <button type="submit" style="cursor: pointer;" >+</button>
+    <!--127 Se coloca un boton el cual se va a encargar de eliminar el registro
+            Preguntamos si el idPersona es diferente de null
+            Y con el evento click se manda llamar el metodo eliminarPersona-->
+    <button *ngIf="idPersona != null" type="submit" style="cursor: pointer" class="buttonRed" (click)="onEliminarPersona()">-</button>
+  </form>
+</div>

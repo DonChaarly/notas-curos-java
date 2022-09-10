@@ -1,0 +1,30 @@
+/*Estados y colores de los links*/
+/*Normalmente el link cuando no se ha oprimido se encuentra en color azul, cuando se oprime se cambia a rojo y cuando ya se ha oprimido cambia a morado
+    Esto se puede cambiar con paginas de estilo CSS*/
+h1{
+    color: #560bad;
+}
+
+/*Para modificar el estado del link antes de oprimirlo*/
+a:link{
+    color:#fb8500;
+    /*Para quitar el subrayado*/
+    text-decoration: none;
+
+}
+/*Para modificar el estado del link cuando ya se ha oprimido*/
+a:visited{
+    color:#219ebc;
+    text-decoration: none;
+}
+/*Cambiar el estado cuando nos colocamos sobre el link*/
+a:hover{
+    color:#8ecae6;
+    /*Para colocar el subrayado*/
+    text-decoration: underline;
+}
+/*Para modificar el estado de activo, cuando se esta primiendo del link*/
+a:active{
+    color:#023047;
+    text-decoration:underline;
+}

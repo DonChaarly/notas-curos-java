@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--118 Se agregan los namespaces de html y thymeleaf-->
+<!--120 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www/thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <!--122 El siguiente codigo tambien lo vamos a compartir en las demas vistas, por ello se le coloco el atributo de fragment y se especifico como llamarlo desde otras vistas-->
+    <head th:fragment="head">
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+        <!--122 Se agrega el link para bootstrap y font-awesome, el cual tambien viene en la pagina principal de bootstrap ahi te dice como agregarlo y todo, sin embargo al usar spring estamos utilizando librerias de webjars-->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <!--122 Para que funcionen correctamente los elementos de bootstrap se agregan librerias de javaScrip-->
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <!--118 Se coloca en una etiqueta de header con el atributo de frangment indicando el nombre con el que se va a llamar el fragmento desde otra vista-->
+        <!--119 Para colocar un mensaje del archivo messages.properties se puede poner el atributo th:text y entre #{} colocar el nombre del mensaje que se quiere-->
+        <header th:fragment="header">
+            <!--122 Se agrega una barra de navegacion con herramientas de bootstrap-->
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+                <div class="container-fluid">
+                    <a th:href="@{/}" class="navbar-brand" th:text="#{plantilla.titulo}">Control Clientes</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-2">
+                                <a th:href="@{/}" class="nav-link active" aria-current="page" th:text="#{barra.titulo}">Inicio</a>
+                            </li>
+                        </ul>
+                        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto mb-2 mb-lg-0">
+                            <li class="nav-item mr-3">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-user"></i>
+                                    <span th:text="#{barra.bienvenido}">Bienvenido</span>
+                                    <!--120 mostramos cual es el usuario que hizo login y sus roles-->
+                                    <span sec:authentication="name">Usuario</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <!--120 Se coloca un formulario ya que se debe hacer submit para poder hacer logout el cual debe ser de tipo POST
+                                        
+                                se debe utilizar el path de logout para que springSecurity reconozca que queremos salir-->
+                                <form method="post" th:action="@{/logout}">
+                                    <!--120 con el evento onClik especificamos que se haga submit del formulario -->
+                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                        <i class="fas fa-user-times"></i>[[#{barra.salir}]]
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section id="main-header" class="py-2 bg-info text-white">
+                <div class="conteiner">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>
+                                <i class="fas fa-cog"></i>[[#{plantilla.titulo}]]
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <!--118 Se coloca una plantilla para el footer-->
+        <!--119 Se colocan los link para cambiar el idioma colocando el parametro que especificamos en el archivo WebConfig-->
+        <!--119 Si se coloca el atributo th:text se sustituye todo el texto dentro del span perdiendo el link
+            Se tiene otra forma de mandar llamar mensajes del archivo messages.properties y es colocando [[]] con esto no se pierde el texto del parrafo-->
+        <!--122 Se agregan herramientas de bootstrap-->
+        <footer th:fragment="footer" class="bg-warning text-white mt-5 p-5">
+            <div class="conteiner">
+                <div class="col">
+                    <p class="lead text-center">
+                        <a th:href="@{/(lang=es)}">ES</a> |
+                        <a th:href="@{/(lang=en)}">EN</a> |
+                        <span>[[#{plantilla.pie-pagina}]] &copy; <a href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.mx</a></span> 
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

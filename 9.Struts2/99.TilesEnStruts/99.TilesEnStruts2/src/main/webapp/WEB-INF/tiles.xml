@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation/DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+    
+    <!--En este archivo lo que se hará es agregar la definición de la plantilla de tiles que vamos a utilizar en nuestra aplicacion web-->
+    
+<tiles-definitions>
+    <!--Definimos nuestra plantilla, colocando el nombre y el lugar en donde se va a encontrar-->
+    <definition name="layout" template="/WEB-INF/content/layout.jsp">
+        <!--Se definen los atributos que va a tener el archivo
+            Se define su nombre y su contenido el cual puede ser un simple String o un jsp-->
+        <put-attribute name="title" value="Plantilla"/>
+        <put-attribute name="header" value="/WEB-INF/content/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/content/menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/content/body.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/content/footer.jsp"/>
+    </definition>
+    
+    <!--Se pueden definir diferentes plantillas las cuales pueden hacer extención de las que ya se han definido-->
+    <definition name="bienvenidoTile" extends="layout">
+        <!--Sobreescribimos las secciones que nos interesan-->
+        <put-attribute name="title" value="Bienvenido"/>
+        <put-attribute name="body" value="/WEB-INF/content/bienvenido.jsp"/>
+    </definition>
+    
+    <definition name="personasTile" extends="layout">
+        <put-attribute name="title" value="Personas"/>
+        <put-attribute name="body" value="/WEB-INF/content/personas.jsp"/>
+    </definition>
+</tiles-definitions>

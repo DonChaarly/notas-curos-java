@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de document.write</title>
+</head>
+<body>
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <button onclick="borrar()">Borrar todo alv</button>
+    <br/>
+    <br/>
+    <button onclick="cambiar()">Cambiar imagen</button>
+    <br/>
+    <img id="imagen" src="http://globalmentoring.com.mx/imagenes/javascript.png">
+    <br/>
+    <button onclick="estilo()">Cambiar color del titulo</button>
+    <br/>
+
+    <script>
+        //document.write imprimira el contenido de los parentesis en la pagina
+       
+        document.write("Saludos desde JavaScript");
+        //Hay que tener cuidado con esto, por sobreescribira el contenido de la pagina si se llama despues de definidos estos elementos
+        function borrar(){
+            document.write("Adios");
+        }
+        //Para cambiar una imagen desde el codigo JavaScript
+        function cambiar(){
+            document.getElementById("imagen").src = "http://globalmentoring.com.mx/imagenes/html5.png";
+        }
+
+        //Para cambiar el estilo css de un elementos
+        function estilo(){
+            document.getElementById("titulo").style.color = "blue";
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

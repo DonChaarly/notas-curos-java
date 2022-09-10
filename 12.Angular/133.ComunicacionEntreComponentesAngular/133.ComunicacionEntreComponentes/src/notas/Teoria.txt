@@ -1,0 +1,14 @@
+          Comunicacion entre componentes hijos y padres
+Utilizando la directiva @Input en el component.ts somos capaces de enviar inforamcion del componente padre al hijo
+Utilizando la directiva @Output en el component.ts somos capaces de enviar inforamcion del componente hijo al padre
+
+          Referencias Locales
+Las referencias locales son como el concepto de Two Way Binding este sirve para pasar informacion de la plantilla al componente y vicebersa
+Sin embargo las referencias locales solo mandan informacion de la plantilla al componente
+
+          View Child
+Con View Child podemos recuperar la inforamcion de la referencia local que mandamos de la plantilla en el componente
+
+
+
+

@@ -1,0 +1,64 @@
+              Archivos en los proyectos de Angular
+Carpeta node_modules: Nos permite ejercutar las apliaciones de Angular, los modulos se encuentran instalados en esa Carpeta
+                      Solo Se requiere cuando se esta desarrollando la aplicacion
+                      Cuando no se tiene esta carpeta se escribe en la terminal el comando npm install, con esto se creara la carpeta
+Carpeta de src: Esta carpeta contendra el codigo fuente de la aplicacion
+Archivo index.html: Esta archivo contendra la vista principal de la aplicacion
+                      Dentro del index se encunentra la etiqueta <app-root></app-root> la cual inyecta los componentes de la carpeta app
+Carpeta app: Es el primer componente que tenemos en nuetro proyecto
+              Los componentes se componen de archivos css, html y codigo TypeScript
+Archivo component.ts: En este archivo se definen el selector con el que se va a llamar el componente desde el archivo index
+                      Seguido se define la plantilla que se va a llamar con el selector y los estilos que se van a utilizar
+Archivo app.module.ts: En este archivo se encuentra la deficino de la clase appModule
+                        Tambien se tiene un decorador el cual se utiliza para agregar caracteristicas extras como configuraciones
+Archivo de Angular.json: En este archivo se configura los archivos de la apliaciones
+Archivo de package.json En este archivo se administran las librerias de la aplicacion
+Archivo main.ts: En este archivo se configura dentro de otras cosas el levantamiento de los modulos como el AppModule que se encuentra en la carpeta de App
+
+
+              Extenciones en los archivos
+Extencion ts: TypeScript ( es como JavaScript pero mejorado)
+Extencion html: lenguaje de vista html
+Extencion css: hojas de estilos css
+
+
+              Formas de agregar componentes
+seleccionamos la carpreta de app y le damos a crear una nueva carpeta, dentro de esta carpeta se agregaran los archivo relacionados al componente
+    como el archivo componetn.ts, component.html, etc
+Se puede crear un componente desde desde la terminal con el comando ng generate component (Nombre del componente)
+    o mas reducido 'ng g c (nombre del componente)'
+Es mejor agregar el componente desde la terminal ya que esto lo agrega automaticamente al app.module
+    y tambien se generan los archivos asociados al componente
+Para generar componentes utilizando el conpecto de inline se agrega al comando -s -t, osea ng g c (nombre del componente) -s -t, (-s para la hoja de estilo y -t para el template)
+
+
+              Instalacion de Bootstrap
+Se coloca el comando de npm install bootstrap jquery @popperjs/core
+Ahora se tiene que configurar dentro de la aplicacion de angular, esto se hace en el archivo de angular.json en la seccion de
+  styles ("node_modules/bootstrap/dist/css/bootstrap.min.css") y scripts ("node_modules/jquery/dist/jquery.min.js",
+  "node_modules/@popperjs/core/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js")
+
+
+
+
+Los archivos donde se agregaron comentarios son:
+app.module.ts
+main.ts
+app.component.ts
+personas.component.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

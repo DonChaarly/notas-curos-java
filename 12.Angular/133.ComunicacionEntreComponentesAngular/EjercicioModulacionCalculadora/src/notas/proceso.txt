@@ -1,0 +1,8 @@
+Se installo bootstrap jquery y @popperjs/core
+Se incluyeron las rutas en angular.json en style y script
+Se configuro el manejo de tipos estrictos en el tsconfig.json
+Se coloco el import para manejar TwoWaybinding en el archivo app.module.ts
+Se crearon los componentes formulario y resultado
+
+
+

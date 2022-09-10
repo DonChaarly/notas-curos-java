@@ -1,0 +1,74 @@
+<!--Con el signo de ! y tabulador se escribe el codigo general del proyecto-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Elementos Basicos HTML</title>
+</head>
+<body style="background-color: rgba(134, 203, 224, 0.315);">
+                                      <!--TITULOS-->
+    <h1>Elementos basicos HTML</h1><!--Los titulos tienen la etiqueta h y un numero, hasta el 6, Entre mas grande es el numero mas pequeño el titulo,Los titulos dan un salto de linea -->
+                                      <!--PARRAFOS-->
+    <p>Primer linea del parrafo <br/> Segunda linea del parrafo <hr/>Tercera linea del parrafo con linea de separacion </p><!--hr es un salto de linea cn linea horizontal-->
+                                       <!--LINKS-->
+    <a href="http://www.globalmentoring.com.mx" target="_blank"><!--Con target y el valor _blank estamos indicando que el link se abra en una nueva pestaña-->
+        Sitio GlobalMentoring.com.mx<!--Este es el texto que se mostrara en la pagina y contendra el link-->
+    </a>
+    <br><!--br es un salto de linea-->
+    <a href="pagina1.html">Ir a pagina 1</a>
+    <br/>
+                                     <!--IMAGENES-->
+    <!--Se pueden agregar fisicamente a la carpeta del proyecto de manera local-->
+    <img src="imagenes/html5.png"/>
+    <!--Tambien se puede indicar el URL de la imagen y agregar la imagen desde un servidor en internet-->
+    <img src="http://globalmentoring.com.mx/imagenes/css3.png"/>
+    <!--Si la URL esta mal se mostrara un icono de imagen roto solamente-->
+    <img src="http://globalmentoring.com.mx/imagenes/javascript.jpg"/>
+    <!--Se puede agrgar un texto alternativo en caso de que no se cargue la imagen con el atributo alt-->
+    <img src="imagenes/html5.jpg" alt="Logo html5"/>
+    <!--Se puede modificar el tamaño de la imagen con width(ancho) y con lang(alto)-->
+    <img src="imagenes/html5.png" alt="Logo html5" width="100px" />
+
+    <br/>
+                                   <!--ATRIBUTOS-->
+    <!--Se pueden agrgar titulos a las imagenes o cualquier otro elemento con el atributo de tittle, este se mostrara al situar el raton sobre el elemento-->
+    <img src="imagenes/html5.png" alt="Logo html5" width="150px" title="Logo HTML5" />
+    <p title="Nuevo parrafo">Este es nuestro parrafo</p>
+    <!--El atributo style modificara un aspecto de estilo del elemento-->
+    <p title="Nuevo parrafo" style="color:red ;">Parrafo con color</p>
+    <!--para respetar el texto tal cual como se agrega se utiliza la etiqueta de pre-->
+    <pre>
+Texto tal
+       cual agregado
+    </pre>
+                                 <!--ESTILOS CSS-->
+    <!--Se puede agregar estilos a la etiqueta de body-->
+    <!--para separar un atributo de otro se utiliza ;-->
+    <p style="color:blue; font-size: 30px; font-family:'Courier New', Courier, monospace ;">parrafo con estilo</p>
+                                <!--FORMATO A TEXTO-->
+    <p><b>Texto en negritas</b></p>
+    <p><strong>Texto importante</strong></p>
+    <p><i>Texto en italica o cursiva</i></p>
+    <p><em>Texto enfatizado</em></p>
+    <p><small>Texto pequeño</small></p>
+    <p><mark>Texto con marcador o fondo amarillo</mark></p>
+    <p><del>Texto eliminado o rayado</del></p>
+    <p><ins>Texto insertado o subrayado</ins></p>
+    <p>texto como <sub>sub</sub>indice H<sub>2</sub>O</p>
+    <p>Texto como <sup>super</sup> indice</p>
+    <p><code>Texto mostrado como codigo</code></p>
+                                <!--CARACTERES-->
+    <!--Si no contamos con la tecla de algun caracter o no se muestra bien el caracter podemos usar su codigo-->
+    <p>&excl; Simbolo de exclamación</p>
+    <p>&#x00021; Simbolo de exclamacion exadecimal</p>
+    <p>&#33; Simbolo de exclamacion en decimal</p>
+    <p>&lt; Simbolo menor que</p>
+    <p>&gt; Simbolo mayor que</p>
+    <p>&commat; Simbolo de arroba</p>
+    <p>&Aacute;rbol Acento</p>
+    <p>&Oacute;rale</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Texto con espacios</p>
+</body>
+</html>

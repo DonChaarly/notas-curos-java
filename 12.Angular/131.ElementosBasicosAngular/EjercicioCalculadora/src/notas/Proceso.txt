@@ -1,0 +1,4 @@
+Se intallo bootstrap
+Se configuro bootstrap en el archivo angular.json en la parte de scrip y styles
+
+

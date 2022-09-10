@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--112 Para poder manejar informacion dinamica en la aplicacion con thymeleaf se deben agregar las etiquetas de th
+    Salio un aviso de error pero le dimos desabilitar el aviso ya que este pedo esta al cien-->
+<!--120 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <!--122 Se reemplaza el contenido del siguente bloque por el de la plantilla-->
+    <head th:replace="layout/plantilla :: head">
+        <title>Inicio</title>
+    </head>
+    <body>
+        
+        <!--118 Se agrega la etiquet de header con el atributo de th:replace para mandar llamar la plantilla y el fragmento de header, se coloca la ruta en donde se encuentra el archivo seguido de :: y el nombre del fragmento-->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!--122 Se agregan secciones donde vamos a llamar bloques de codigo de nuestras plantillas-->
+        <section th:replace="layout/botonesAgregar :: botonesAgregar"></section>
+        <section th:replace="layout/agregarCliente :: agregarCliente"></section>
+        <section th:replace="layout/listadoClientes :: listadoClientes"></section> 
+        
+        <!--118 Se agrega el footer -->
+        <footer th:replace="layout/plantilla :: footer"></footer>
+        
+    </body>
+</html>

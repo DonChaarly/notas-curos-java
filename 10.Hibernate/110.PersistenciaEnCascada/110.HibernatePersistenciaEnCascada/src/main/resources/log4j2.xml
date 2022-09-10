@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO"><!--Se tendra el status a nivel de INFO-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT"><!--Se utlizara la consola para mostrar la informacion-->
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} -%msg%n"/><!--Se agrega el patron, existen mas patrones-->
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!--Primer logger-->
+        <Logger name="org.hibernate.SQL" level="info" additivity="false"><!--Se va a mostrar la informacion de SQL de la aplicacion, el nivel debug es el mas basico, con additivity indicamos que no se duplique la imformacion-->
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <!--Segundo logger-->
+        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="info" additivity="false"><!--este loger es para mostrar los parametros que vayamos adjuntando a nuestros SQL-->
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <!--Se indica el nivel que tendra log4j-->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

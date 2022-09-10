@@ -1,0 +1,21 @@
+<div class="cabecero">
+  <div class="presupuesto">
+    <div class="presupuesto_titulo">Presupuesto Disponilbe:</div>
+    <div class="presupuesto_valor">{{ presupuestoCabecero | currency:'MNX':'$':'1.2-2'}}</div>
+    <div class="presupuesto_ingreso limpiarEstilos">
+      <div class="presupuesto_ingreso--texto">Ingresos</div>
+      <div class="right">
+        <div class="presupuesto_ingreso--valor">{{ ingresoTotalCabecero | currency:'MNX':'$':'1.2-2'}}</div>
+        <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="presupuesto_egreso limpiarEstilos">
+      <div class="presupuesto_egreso--texto">Egresos</div>
+      <div class="right">
+        <div class="presupuesto_egreso--valor">{{ egresoTotalCabecero | currency:'MNX':'$':'1.2-2'}}</div>
+        <div class="presupuesto_egreso--porcentaje">{{ porcentajeTotal | percent }}</div>
+      </div>
+    </div>
+  </div>
+</div>

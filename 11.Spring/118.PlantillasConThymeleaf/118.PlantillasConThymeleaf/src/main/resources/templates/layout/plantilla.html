@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--118 Se agregan los namespaces de html y thymeleaf-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www/thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!--118 Se coloca en una etiqueta de header con el atributo de frangment indicando el nombre con el que se va a llamar el fragmento desde otra vista-->
+        <header th:fragment="header">
+            <h1>Control clientes</h1>
+        </header>
+        
+        <!--Se coloca una plantilla para el footer-->
+        <footer th:fragment="footer">
+            <p>Derechos reservados <a href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.mx</a></p> 
+        </footer>
+    </body>
+</html>

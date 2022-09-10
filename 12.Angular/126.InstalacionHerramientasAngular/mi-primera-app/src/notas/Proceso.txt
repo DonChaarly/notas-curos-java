@@ -1,0 +1,13 @@
+Se instalo las herramientas de node js (en google buscando download node js)
+Se instalo angular abriendo el simbolo del sistema de windows y colocando la cadena npm install -g @angular/cli
+Se instalo visualStudio buscandolo en google
+Se creo un nuevo proyecto angular en el simbolo del sisetma colocando ng new mi-primera-app (en la carpeta que se queria)
+
+Ya en visual visualStudio
+Se modifico el archivo app.component.html
+    Se borro todo el contenido y se sustituyo por uno nuevo 
+Se modifico el archivo index.html
+Se abrio una terminal nueva (Se abre arriba)
+    visualStudio nos agrega una terminal en automatico 
+    colcoamos ng serve -o ( para que se abra el navegador con nuestra app)
+    Si no estamos ejecutando el ide en modo administrador puede que no se reconozcan los comandos

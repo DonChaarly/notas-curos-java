@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col">
+    <h1>{{ titulo }}</h1>
+  </div>
+  <hr/>
+  <!--133 Se coloca el codigo del componente hijo formulario-->
+  <!--134 Ya no es necesario mandar la informacion con el event binding, la inforamcion se manda directamente al servicio personaService-->
+  <app-formulario></app-formulario>
+  <hr/>
+</div>
+<!--133 Se incluye el codigo del componente persona, y en esa parte se itera el arreglo de pesonas ya que este componente padre tiene el arreglo de personas
+        Se pasa la informacion del objeto persona y del index utilizando property binding y ya desde el component.ts del hijo se recupera esta informacion  -->
+<app-persona
+*ngFor="let personaElemento of personas; let i = index"
+[persona]="personaElemento"
+[indice]="i"
+>
+</app-persona>
+
+
+
+
+

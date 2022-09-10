@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--122 Se agregan los namespaces de html y thymeleaf-->
+<!--122 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www/thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Editar Cliente</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body> 
+        <!--122 Se agrega la seccion que se puede reemplazar en cualquier vista y se especifica el nombre con el que se va a llamar-->
+        <section th:fragment='editarCliente'>
+            <!--116 Agregamos un formulario que mandara el path de guardar al controlador 
+                   utilizando el metodo post y para asociar el obeto quemando el path de agregar utilizamos el atributo de thymeleaf object-->
+            <form th:action='@{/guardar}' th:object='${persona}' method="POST" class="was-validated">
+
+                <!--116 Se coloca un input oculto para compartir el idPersona el cual puede ser null o tener un valor dependiendo si se va agregar un nuevo registro o solo modificar uno existente-->
+                <!--Para acceder a un atributo del objeto persona utilizamos la etiqueta th:field y accedemos con un asterisco-->
+                <input type='hidden' name='idPersona' th:field='*{idPersona}'/>
+                <!--122 Se coloca una seccion donde se va a reemplazar el codigo por el de bontonesEditar-->
+                <section th:replace='layout/botonesEditar :: botonesEditar'></section>
+                <!--122 Se agrega la seccion del la tabla del formulario-->
+                <div id='details'>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.editar}]]</h4>
+                                    </div>
+                                    <div class='card-body'>
+                                        <div class="form-group">
+                                            <label for='nombre'>[[#{persona.nombre}]]</label>
+                                            <input type='text' class="form-control" name="nombre" required="true" th:field='*{nombre}'/>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label for='apellidoPaterno'>[[#{persona.apellidoPaterno}]]</label>
+                                            <input type='text' class="form-control" name="apellidoPaterno" required="true" th:field='*{apellidoPaterno}'/>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label for='apellidoMaterno'>[[#{persona.apellidoMaterno}]]</label>
+                                            <input type='text' class="form-control" name="apellidoMaterno" required="true" th:field='*{apellidoMaterno}'/>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label for='email'>[[#{persona.email}]]</label>
+                                            <input type='email' class="form-control" name="email" required="true" th:field='*{email}'/>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label for='telefono'>[[#{persona.telefono}]]</label>
+                                            <input type='tel' class="form-control" name="telefono" th:field='*{telefono}'/>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label for='saldo'>[[#{persona.saldo}]]</label>
+                                            <input type='number' class="form-control" name="saldo" required="true" th:field='*{saldo}'/>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--122 Se agregan los namespaces de html y thymeleaf-->
+<!--122 Se agrega el namesapce de extras para agregar el concepto de seguridad-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www/thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Agregar Cliente</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!--122 Se agrega la seccion donde se va a mostrar la ventana modal para agregar un cliente-->
+        <section th:fragment="agregarCliente">
+            <div id="agregarCliente" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Cliente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form th:action='@{/guardar}' th:object='${persona}' method="post" class='was-validated'>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for='nombre' th:text='#{persona.nombre}'>Nombre</label>
+                                    <input type='text' class='form-control' name='nombre' required='true'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for='apellidoPaterno' th:text='#{persona.apellidoPaterno}'>Apellido Paterno</label>
+                                    <input type='text' class='form-control' name='apellidoPaterno' required='true'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for='apellidoMaterno' th:text='#{persona.apellidoMaterno}'>Apellido Materno</label>
+                                    <input type='text' class='form-control' name='apellidoMaterno' required='true'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for='email' th:text='#{persona.email}'>Email</label>
+                                    <input type='email' class='form-control' name='email' required='true'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for='telefono' th:text='#{persona.telefono}'>Telefono</label>
+                                    <input type='tel' class='form-control' name='telefono'/>
+                                </div>
+                                <div class="form-group">
+                                    <label for='saldo' th:text='#{persona.saldo}'>Saldo</label>
+                                    <input type='number' class='form-control' name='saldo' required='true' step="any"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type='submit' th:text='#{accion.guardar}'>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

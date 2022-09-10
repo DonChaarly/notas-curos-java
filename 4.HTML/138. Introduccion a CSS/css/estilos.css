@@ -1,0 +1,21 @@
+h1 {
+  color: #335c67;
+  text-align: center;
+}
+p {
+  color: #540b0e;
+  background-color: #fff3b0;
+  /*El pading va a modificar el tamaño del color de fondo que tienen los elementos*/
+  padding: 15px;
+  /*El border es el borde que se encuentra en la periferia del color de fondo del elemento y se tiene que indicar si es solido y el color*/
+  border: 10px solid #9e2a2b;
+  /*El margin es el margen de espacio que tiene etre los demas componentes*/
+  /*margin-top: 40px;
+  margin-right: 10px;
+  margin-bottom: 20;
+  margin-left: 10px;*/
+  /*Se pueden modificar los lados colocando los valores con el orden de arriba*/
+  margin: 40px 10px 20px 10px;
+  /*Para centrar el texto se coloca text-align*/
+  text-align: center;
+}

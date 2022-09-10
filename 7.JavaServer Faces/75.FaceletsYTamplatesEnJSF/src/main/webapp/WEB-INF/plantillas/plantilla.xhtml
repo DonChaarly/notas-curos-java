@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--Se agregan las etiquetas de JSF y el manejo de facelets-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <!--Se cambian las etiquetas de <head> y <body> html por las de JSF <h:head> y <h:body>-->
+    <h:head>
+        <title>Proyecto Bolsa Trabajo</title>
+        <!--Asociamos nuestra hoja de estilos css a nuestro archivo-->
+        <h:outputStylesheet library="css" name="estilos.css"/>
+
+    </h:head>
+    <h:body>
+        <!--Vamos a definir varias secciones en la plantilla las cuales podran ser modificadas por cada una de las paginas-->
+
+        <div id="wrapper" >
+
+            <!--Seccion de header-->
+            <div id="header-wrapper">
+                <!--Agregamos una seccion que podra ser modificable llamada top-->
+                <ui:insert name="top">
+                    <div id="header">
+                        <div id="logo">
+                            <h1>Bolsa de trabajo</h1>
+                        </div>  
+                    </div>
+                </ui:insert>
+            </div>
+
+            <!--Seccion de Contenido-->
+            <div id="page">
+                <!--Agregamos otro insert que se podra modificar-->
+                <ui:insert name="content">Contenido</ui:insert>
+            </div>
+
+            <!--Seccion inferior-->
+            <div id="footer">
+                <ui:insert name="botoom">Derechos reservados - GlobalMentorin.com.mx - UniversidadJava.com</ui:insert>
+            </div>
+            
+        </div>
+
+
+    </h:body>
+</html>

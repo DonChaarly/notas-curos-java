@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    <head>
+        <title>Hola Mundo JSF</title>
+    </head>
+    <body>
+        <!--Con la libreria de jsf odemos utilizar las siguientes sentencias-->
+        <h:form>
+            <table>
+                <tr>
+                    <!--Agregamos una etiqueta-->
+                    <td><h:outputLabel for="nombre" value="Nombre:"></h:outputLabel></td>
+                    <!--Agregamos una entrada para introducir el nombre y colocamos como valor la variable nombre que definimos en nuestro managedBean-->
+                    <td><h:inputText id="nombre" value="#{candidato.nombre}"></h:inputText></td>
+                    <!--Agregamos un mensaje en caso de que surja algun error con el nombre-->
+                    <td><h:message for="nombre"></h:message></td>
+                </tr>
+            </table>
+            <!--Se agrega un boton con el que enviaremos el formulario y al mismo tiempo se llamara el backing bean de vacanteForm-->
+            <h:commandButton action="#{vacanteForm.enviar()}" value="Enviar"/>
+        </h:form>
+    </body>
+</html>

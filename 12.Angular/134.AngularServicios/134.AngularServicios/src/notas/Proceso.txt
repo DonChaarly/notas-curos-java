@@ -1,0 +1,11 @@
+Se creo una clase loggingService para administrar nuesro servicio
+Se modifico el archivo formulario.component.ts y html
+Se modifico el archivo app.component.ts
+Se modifico el archivo app.module.ts
+  Para no estar agregando los provedores en cada componente se pueden agregar directamente en el app.module.ts
+Se creo la clase persona.service.ts
+Se modifico el persona.component.ts y html
+
+
+
+ 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--116 agregamos las etiquetas de thymeleaf y otro xmlns para desavilitar el error 
+    que nos marca el IDE pero esto nos obliga a tener que cerrar todas las etiquetas con un /> -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <!--122 Se reemplaza el contenido del siguente bloque por el de la plantilla-->
+    <head th:replace="layout/plantilla :: head">
+        <title>Modificar Personas</title>
+    </head>
+    <body>
+        <!--118 Se agrega la etiquet de header con el atributo de th:replace para mandar llamar la plantilla y el fragmento de header, se coloca la ruta en donde se encuentra el archivo seguido de :: y el nombre del fragmento-->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!--122 Se agrega el codigo de la plantilla editarCliente-->
+        <section th:replace="layout/editarCliente :: editarCliente"></section>
+        
+        <!--118 Se agrega el footer -->
+        <footer th:replace="layout/plantilla :: footer"></footer>
+        
+    </body>
+</html>

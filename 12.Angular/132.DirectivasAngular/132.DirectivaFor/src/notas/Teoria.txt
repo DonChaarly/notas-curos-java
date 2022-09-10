@@ -1,0 +1,2 @@
+            Directiva ngFor
+Con esta directiva seremos capaces de iterar los elementos de un arreglo

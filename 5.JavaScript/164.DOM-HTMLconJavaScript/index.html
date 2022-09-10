@@ -1,0 +1,65 @@
+<!--Los DOM (Document object Model) en HTML son documentos en los cuales por medio de JavaScript podremos modificar 
+    cada uno de las etiquetas que en este caso seran todos objetos-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document object Model</title>
+</head>
+<body>
+    
+    <!--Es usual agregar un identificador a los elementps html para asi acceder a estos por medio del codigo JavaScript-->
+    <h1 id ="cabecero" >Ejemplo DOM con JavaScript</h1>
+    <p id = "parrafo" >Saludos!</p>
+    <p>Otro parrafo</p>
+    <p class="azul" >Elemento con clase CSS</p>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
+
+    <!--Se agrega la etiqueta script en donde se incluira todo el codigo de JavaScript
+        Esta etiqueta debe colocarse despues de los elementos HTML-->
+    <script>
+        //Con document se accede al documento html, con getElementById se obtiene todo el objeto html y con el id se especifica cual
+        let cabecero = document.getElementById("cabecero");
+        //Con inerHtml se obtiene el contenido en este caso el texto del elemento HTML
+        console.log("Valor cabecero: " + cabecero.innerHTML );
+
+        let parrafo = document.getElementById("parrafo");
+        console.log(`Valor parrafo: ${parrafo.innerHTML} `);
+
+        //Se puede modificar los valores de los elementos HTML
+        cabecero.innerHTML = "Nuevo cabecero";
+        parrafo.innerHTML = "Nuevo valor parrado";
+
+        //getElementByTagName se utiliza Para recuperar todos los elementos del documento con la mismma etiqueta
+        let parrafos = document.getElementsByTagName("p");
+        //getElementsByTagName nos puede regresar un arreglo de elementos
+        console.log(`\n Parrafos: ${parrafos.length}`);
+        for(let parrafo in parrafos){
+            console.log(`${parrafo} - ${parrafos[parrafo].innerHTML}`);
+        }
+
+        //getElementByClassName se utiliza para recuperar todos los elementos del documento con la misma clase css  
+        let elementos = document.getElementsByClassName("azul");
+        console.log("\n Elementos con clase azul:" + " " + elementos.length);
+        for(let elemento of elementos){
+            console.log(`${elemento.innerHTML}`);
+        }
+
+        //querySelectorAll funciona como un filto, recupera todos los elemento que se indiquen y cumplan con las condiciones indicadas
+        let elementosFiltrados = document.querySelectorAll("p.azul");
+        console.log(`\n Elementos p con clase azul: ${elementosFiltrados.length}`);
+        for(let i=0; i<elementosFiltrados.length; i++){
+            console.log(`${i} - ${elementosFiltrados[i].innerHTML}`);
+        }
+        
+
+    </script>
+    
+</body>
+</html>

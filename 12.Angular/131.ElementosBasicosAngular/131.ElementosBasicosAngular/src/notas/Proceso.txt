@@ -1,0 +1,5 @@
+Se modifico el persona.component.ts
+Se modifico el persona.component.html
+Se modifico el presonas.component.html
+
+

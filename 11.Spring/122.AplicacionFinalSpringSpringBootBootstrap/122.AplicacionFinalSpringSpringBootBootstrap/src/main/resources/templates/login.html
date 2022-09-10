@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--120 agregamos las etiquetas de thymeleaf y otro xmlns para desavilitar el error 
+    que nos marca el IDE pero esto nos obliga a tener que cerrar todas las etiquetas con un /> -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <!--122 Se reemplaza el contenido del siguente bloque por el de la plantilla-->
+    <head th:replace="layout/plantilla :: head">
+        <title>Login</title>
+    </head>
+    <body>
+        
+        <!--122 Se agrega el header de la plantilla-->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!--122 Se agrega una seccion por parte de bootstrap para los bonotes-->
+        <section id="action" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!--122 Se pueden agregar algunos botones -->
+                </div>
+            </div>
+        </section>
+        
+        <!--Se grega una seccion para el formulario de login-->
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+                            <div class="card-body">
+                                <!--120 ustilizamos un formulario para ingresar los datos del usuario, 
+                                    se tiene que utilizar el path de login para que spring reconozca el path-->
+                                <form method="post" th:action='@{/login}'>
+                                    <div class="form-group">
+                                        <!--120 Se tiene que utilizar el name usarname y password para que spring los reconozca-->
+                                        <label for='username'>Username:</label>
+                                        <input type="text" name='username' id='username'/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for='password'>Password:</label>
+                                        <input type="password" name='password' id='password'/>
+                                    </div>
+                                    <input type="submit" value='Login' class="btn btn-primary btn-block"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!--122 Se agrega el footer-->
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

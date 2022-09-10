@@ -1,0 +1,15 @@
+Se instalo bootstrap con el comando npm install bootstrap jquery @popperjs/core
+Se modifico el style y scrip en el archivo angular.json
+Se modifico el archivo app.module.ts
+  Se agrego el import FormsModule para manejar el concepto de twoWayBanding
+
+Se creo el componente Persona dentro de la carpeta app
+Parte del codigo que tenia el archivo app.component.html se paso al de persona
+  El arreglo de personas se encuentra en el componente padre
+  El padre solo va a mandar la informacion del objeto persona de la iteracion del ngFor al componente hijo
+Se creo un nuevo componente formulario
+  Se le paso el formulario que estaba en el app.component.html y parte del codigo del app.component.ts
+  La informacion que reciba este componente se pasa el padre
+
+
+ 
